@@ -1,0 +1,118 @@
+[
+    {
+        "label": "*",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "Points",
+        "kind": 6,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "class Points:\n    def __init__(self, canvas, color):\n        self.canvas = canvas\n        self.id = canvas.create_oval(0, 0, 0, 10, fill=color)\n        self.canvas_height = 400\n        self.canvas_width = 500\n        xpos = 0\n        ypos = 0\n        self.canvas.move(self.id, xpos, ypos)\n    def pointhit(self, pos):",
+        "detail": "Main",
+        "documentation": {}
+    },
+    {
+        "label": "Ball",
+        "kind": 6,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "class Ball:\n    def __init__(self, canvas, color, paddle, points):\n        self.canvas = canvas\n        self.paddle = paddle\n        self.points = points\n        self.id = canvas.create_oval(10, 10, 25, 25, fill=color)\n        self.canvas.move(self.id, 245, 100)\n        self.canvas_height = 400\n        self.canvas_width = 500\n        starts = [-3, -2, -1, 1, 2, 3]",
+        "detail": "Main",
+        "documentation": {}
+    },
+    {
+        "label": "Paddle",
+        "kind": 6,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "class Paddle:\n    def __init__(self, canvas, color):\n        self.canvas = canvas\n        self. id = canvas.create_rectangle(0, 0, 100, 10, fill=color)\n        self.canvas.move(self.id, 200, 300)\n        self.x = 0\n        self.canvas_width = 500\n        self.canvas.bind_all('<KeyPress-Right>', self.move_right)\n        self.canvas.bind_all('<KeyPress-Left>', self.move_left)\n    def draw(self):",
+        "detail": "Main",
+        "documentation": {}
+    },
+    {
+        "label": "gameover",
+        "kind": 2,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "def gameover(canvas):\n    global score\n    canvas.create_text(250, 120, text='Game Over!', fill='red',\n                       font=('Times', 15))\n    canvas.create_text(250, 150, text='Score: ' + str(score), fill='red',\n                       font=('Times', 15))\ntk = Tk()\n# adds title to the window\ntk.title('Bouncing Ball')\n# make the window non-resizable both horizontally and vertically",
+        "detail": "Main",
+        "documentation": {}
+    },
+    {
+        "label": "score",
+        "kind": 5,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "score = 0\nclass Points:\n    def __init__(self, canvas, color):\n        self.canvas = canvas\n        self.id = canvas.create_oval(0, 0, 0, 10, fill=color)\n        self.canvas_height = 400\n        self.canvas_width = 500\n        xpos = 0\n        ypos = 0\n        self.canvas.move(self.id, xpos, ypos)",
+        "detail": "Main",
+        "documentation": {}
+    },
+    {
+        "label": "tk",
+        "kind": 5,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "tk = Tk()\n# adds title to the window\ntk.title('Bouncing Ball')\n# make the window non-resizable both horizontally and vertically\ntk.resizable(0, 0)\n# make the window appear on top of other windows\ntk.wm_attributes(\"-topmost\", 1)\n# extra named parameters don't allow border\ncanvas = Canvas(tk, width=500, height=400, bd=0, highlightthickness=0)\ncanvas.pack()",
+        "detail": "Main",
+        "documentation": {}
+    },
+    {
+        "label": "canvas",
+        "kind": 5,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "canvas = Canvas(tk, width=500, height=400, bd=0, highlightthickness=0)\ncanvas.pack()\npaddle = Paddle(canvas, color='black')\npoints = Points(canvas, color='red')\nball = Ball(canvas, color='blue', paddle=paddle, points=points)\n# MAIN LOOP\nwhile 1:\n    if not ball.hit_bottom:\n        ball.draw()\n        paddle.draw()",
+        "detail": "Main",
+        "documentation": {}
+    },
+    {
+        "label": "paddle",
+        "kind": 5,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "paddle = Paddle(canvas, color='black')\npoints = Points(canvas, color='red')\nball = Ball(canvas, color='blue', paddle=paddle, points=points)\n# MAIN LOOP\nwhile 1:\n    if not ball.hit_bottom:\n        ball.draw()\n        paddle.draw()\n    else:\n        gameover(canvas)",
+        "detail": "Main",
+        "documentation": {}
+    },
+    {
+        "label": "points",
+        "kind": 5,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "points = Points(canvas, color='red')\nball = Ball(canvas, color='blue', paddle=paddle, points=points)\n# MAIN LOOP\nwhile 1:\n    if not ball.hit_bottom:\n        ball.draw()\n        paddle.draw()\n    else:\n        gameover(canvas)\n    tk.update_idletasks()",
+        "detail": "Main",
+        "documentation": {}
+    },
+    {
+        "label": "ball",
+        "kind": 5,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "ball = Ball(canvas, color='blue', paddle=paddle, points=points)\n# MAIN LOOP\nwhile 1:\n    if not ball.hit_bottom:\n        ball.draw()\n        paddle.draw()\n    else:\n        gameover(canvas)\n    tk.update_idletasks()\n    tk.update()",
+        "detail": "Main",
+        "documentation": {}
+    }
+]
